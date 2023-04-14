@@ -56,9 +56,20 @@
 
 
 
-    <div id="testDiv">HELLO WORLD!</div>
+    <div id="testDiv">HELLO WORLD!</div> 
     
+    <header id="firstColumn"></header>
 
+    <p id='demo'>PlaceHolder Text</p>
+    <!-- <p id='demo2'>PlaceHolder Text</p> -->
+
+
+<script type="module">
+    import {name, age} from './main.js';
+    document.getElementById('demo').innerHTML = 'My name is ' + name;
+    document.getElementById('demo').innerHTML += ' I am, ' + age + ' year old';
+
+</script>
 
     <script type="text/babel">
         /*function Hi(){
@@ -69,10 +80,10 @@
         // ReactDOM.render(<Hi />, document.getElementById('testDiv'));
         
 
-        // ReactDOM.render(
-        //     <h1>Hello React</h1>,
-        //     document.getElementById('testDiv')
-        // );
+        ReactDOM.render(
+            <h1>Hello {name}</h1>,
+            document.getElementById('testDiv')
+        );
 
         
         /*const name = "Regie Marzan";
@@ -137,7 +148,7 @@
             return 'Warlord Colony';
         }
         
-        var createdPlot3 = () => "Rise of the Demon Lord";
+        var createdPlot3 = () => "Forgotten Heroes";
 
         document.getElementById('plot').innerHTML = createdPlot();
         document.getElementById('plot2').innerHTML = createdPlot2();
@@ -177,7 +188,7 @@
             return
         }
   */      
-        const add = myArray[0];
+      /*  const add = myArray[0];
         const subtract = myArray[1];
         const multiply = myArray[2];
         const divide = myArray[3];
@@ -187,6 +198,58 @@
         document.write('<p>Difference:' + subtract + '</p>');
         document.write('<p>Product:' + multiply + '</p>');
         document.write('<p>Quotient:' + divide + '</p>');
+    */
+    
+    /*
+        const n1 = ['one',2,'two'];
+        const n2 = [4,'five',6];
+        const nCombined = [...n1, ...n2];
+
+        document.write(nCombined);
+    */
+
+
+    /*
+    const numberList = [10, 20, 30, 40, 50, 60];
+
+    const [ten, twenty, ...rest] = numberList;
+
+    document.write('<p>' + ten + '</p>');
+    document.write('<p>' + twenty + '</p>');
+    document.write('<p>' + rest + '</p>');
+*/
+
+/*
+    const char1 = {
+        personality: 'unknown',
+        size: 'small',
+        attitude: 'stalwart'
+    }
+
+    const char2 = {
+        appearance: 'skinny',
+        gender: 'female',
+        name: 'soli'
+    }
+
+    const char1Char2 = {...char1, ...char2};
+
+    console.log(char1Char2);
+*/
+
+
+    const table = (
+        <table>
+        <tr><th>Name</th></tr>
+        <tr><th>M</th></tr>
+        <tr><th>Amey</th></tr>
+        <tr><th>Grey</th></tr>
+        <tr><th>Sin</th></tr>
+        </table>
+    );
+
+    ReactDOM.render(table, document.getElementById('table'))
     </script>
+    
 </body>
 </html>
