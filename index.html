@@ -57,12 +57,24 @@
 
 
     <div id="testDiv">HELLO WORLD!</div> 
-    
+
+    <div id="testDiv2">Class Based Component</div>
+
+    <div id="testDiv3">Function with Propeties or Props Based Components</div>
+
+    <div id="testDiv4">Class Based Componet with Props</div>
+
+    <div id="testDiv5">Components inside of Components</div>
+
+
     <header id="firstColumn"></header>
+
+    <div id="firstJSX"></div>
 
     <p id='demo'>PlaceHolder Text</p>
     <!-- <p id='demo2'>PlaceHolder Text</p> -->
 
+    <div id="clock"></div>
 
 <script type="module">
     import {name, age} from './main.js';
@@ -77,18 +89,14 @@
         }*/
 
 
-        // ReactDOM.render(<Hi />, document.getElementById('testDiv'));
+        // React.render(<h1>Hello React, document.getElementById('testDiv')</h1>);
+        // ReactDOM.render(<h1 />, document.getElementById('testDiv'));
         
 
-        ReactDOM.render(
-            <h1>Hello {name}</h1>,
-            document.getElementById('testDiv')
-        );
-
         
-        /*const name = "Regie Marzan";
+        const name = "Regie Marzan";
         ReactDOM.render(<h1>Hello {name}</h1>, document.getElementById('testDiv'));
-        */
+        
 
            
         /*
@@ -238,7 +246,7 @@
 */
 
 
-    const table = (
+    /*const table = (
         <table>
         <tr><th>Name</th></tr>
         <tr><th>M</th></tr>
@@ -248,7 +256,112 @@
         </table>
     );
 
-    ReactDOM.render(table, document.getElementById('table'))
+    ReactDOM.render(table, document.getElementById('firstColumn'))
+    */
+
+
+    /*const myJSX = <h1>INTRO TO JSX</h1>;
+    const root = ReactDOM.createRoot(document.getElementById('firstJSX'));
+    root.render(myJSX);
+    */
+
+    
+    /*const myJSX2 = <h1>Add two number {5+5} to display our JSX 2 Example</h1>;
+    const root = ReactDOM.createRoot(document.getElementById('firstJSX'));
+    root.render(myJSX2);*/
+
+
+    /*const list = (
+        <ul>
+        <li>Avocado</li>
+        <li>Grape</li>
+        <li>Mango</li>
+        <li>Fruits</li>    
+        </ul>
+    )*/
+
+    /*
+    const parent = (
+        <div>
+            <p>Fragment Child paragraph 1</p>
+            <p>FragmentChild paragraph 2</p>
+        </div>
+    )*/
+
+    /*
+    const forwardSlash = <input type='test' />;
+*/
+
+    const className = <h1 className="cssclass">Hello CSS. ClassName</h1>
+
+
+    const root = ReactDOM.createRoot(document.getElementById('firstJSX'));
+    // root.render(list);
+    // root.render(parent);
+    // root.render(fragment);
+    // root.render(forwardSlash);
+    root.render(className);
+    
+    
+    
+    function tick(){
+        const timer = (<h1>{new Date().toLocaleTimeString()}</h1>)    
+            ReactDOM.render(timer, document.getElementById('clock'));
+        }
+    
+        setInterval(tick, 5000);
+
+
+
+        function Welcome(){
+            return <h1>React Function Component</h1>
+        }
+
+        ReactDOM.render(<Welcome />, document.getElementById('testDiv'))
+
+
+
+        class Welcome2 extends React.Component{
+            render() {
+                return (<h1>This is Class Based Component.</h1>)
+            }
+        }
+        ReactDOM.render(<Welcome2 />, document.getElementById('testDiv2'))
+
+
+
+        function Welcome3(props){
+            return <h1>Hello {props.name}!</h1>;
+        }
+
+        ReactDOM.render(<Welcome3 name='React Property'/>, document.getElementById('testDiv3'))
+    
+    
+    
+        class Welcome4 extends React.Component{
+            render() { 
+                return (<h1>Hello {this.props.name}</h1>)  
+                }
+        }
+
+        ReactDOM.render(<Welcome4 name='I am Soli' />, document.getElementById('testDiv4'))
+
+        
+
+        function Child(){
+            return <h2>I am a Child function based component.</h2>
+        }
+
+        function Parent(){
+            return (
+                <>
+                <h1>I am a Parent function based component!</h1>
+                <Child />
+                </>
+            )
+        }
+
+        ReactDOM.render(<Parent />, document.getElementById('testDiv5'))
     </script>
     
 </body>
